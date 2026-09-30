@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<index version="1" name="MPE Editor">
+  <category name="Extensions">
+    <reapack name="MPE Editor" type="extension" desc="MPE Editor - Per-note MPE expression curve editor for REAPER">
+      <version name="1.1.2" author="externalmethod0" time="2026-09-30T00:00:00Z">
+        <changelog><![CDATA[MPE Editor 1.1.2 Release
+
+New & Improved:
+- Normal Mouse Wheel Zoom: Bare mouse wheel scrolls to zoom horizontally without holding Ctrl (Ctrl+Wheel scrolls vertically). Fully configurable via action and API, persists across sessions.
+- Reset All Expressions: Standalone action "MPE Editor: Reset all expression curves for selected notes" and canvas shortcut Shift+F to simultaneously clear Pitch Bend, Pressure, and Timbre CC74 curves with complete Undo history.
+- Instant Grid Division & Swing Reaction: Canvas dynamically listens to REAPER's grid settings and instantly redraws grid divisions and swing alignment.
+- Inline Editor Mode: Compact strip attached directly to arrange view items with auto-zoom and 6 modulation brushes.
+- Host Theme & Docker Integration: Notes inherit item/track colors; curves adapt to light/dark themes; middle-click dock closing supported.
+- Real-time playhead sync with arrange view & note audition on click.
+
+Install note: REAPER only loads extensions at startup, so restart REAPER after installing or updating.]]></changelog>
+        <source platform="win64" file="reaper_mpe_editor.dll">https://github.com/externalmethod0-png/mpe-in-reaper-dist/releases/download/v1.1.2/reaper_mpe_editor.dll</source>
+      </version>
+    </reapack>
+  </category>
+  <metadata>
+    <link rel="website" href="https://methodical4.gumroad.com/l/reaperMPE">MPE Editor on Gumroad</link>
+  </metadata>
+</index>
