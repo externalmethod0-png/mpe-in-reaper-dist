@@ -2,6 +2,20 @@
 <index version="1" name="MPE Editor">
   <category name="Extensions">
     <reapack name="MPE Editor" type="extension" desc="MPE Editor - Per-note MPE expression curve editor for REAPER">
+      <version name="1.1.4" author="externalmethod0" time="2026-10-01T21:35:00Z">
+        <changelog><![CDATA[MPE Editor 1.1.4 Release
+
+New & Improved:
+- Smooth Wheel Scroll Support: Native support for bobo198504's SmoothWheelScroll extension with butter-smooth exponential animation and anti-jitter feedback decoupling.
+- Continuous Infinite Zoom-Out: Complete project-wide zoom without take boundary clipping or looped source modulo wrapping.
+- Deep Zoom Performance Optimization: Adaptive grid Level-of-Detail (LOD) subsampling and viewport frustum culling eliminate micro-stutters when zooming far out.
+- Dedicated Tool Workflows: Duplicate (Ctrl+D), Mute (Alt+M), and note edits isolated strictly to Note Tool (N), preserving Point Tool (P) curve workflows.
+- Reliable Ctrl+Drag Note Duplication.
+- Double-click / Alt+click node reset & item boundary background dimming.
+
+Install note: REAPER only loads extensions at startup. Restart REAPER after installing or updating.]]></changelog>
+        <source platform="win64" file="reaper_mpe_editor.dll">https://github.com/externalmethod0-png/mpe-in-reaper-dist/releases/download/v1.1.4/reaper_mpe_editor.dll</source>
+      </version>
       <version name="1.1.3" author="externalmethod0" time="2026-10-01T20:55:00Z">
         <changelog><![CDATA[MPE Editor 1.1.3 Release
 
