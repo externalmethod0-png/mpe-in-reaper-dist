@@ -2,6 +2,18 @@
 <index version="1" name="MPE Editor">
   <category name="Extensions">
     <reapack name="MPE Editor" type="extension" desc="MPE Editor - Per-note MPE expression curve editor for REAPER">
+      <version name="1.1.5" author="externalmethod0" time="2026-10-02T01:20:00Z">
+        <changelog><![CDATA[MPE Editor 1.1.5 Release
+
+New & Improved:
+- Full Screen Timeline Alignment with Arrange View: When docked below Arrange View, timeline measures, notes, and the playhead cursor align in a single continuous vertical line across both windows (matching REAPER's native MIDI Editor docker behavior).
+- Anti-Jitter Playback Synchronization: Eliminated playback screen shaking and feedback loops by anchoring arrange timeline metrics and stabilizing tempo-derived horizontal zoom.
+- Docker Sizing Parity: Push view synchronization accurately respects Arrange View client geometry, preventing zoom drift when scrolling from inside the MPE Editor.
+- Win32 Handle & Docking Hardening: Safe docker parent inspection and cached TCP coordinate tracking during playback.
+
+Install note: REAPER only loads extensions at startup. Restart REAPER after installing or updating.]]></changelog>
+        <source platform="win64" file="reaper_mpe_editor.dll">https://github.com/externalmethod0-png/mpe-in-reaper-dist/releases/download/v1.1.5/reaper_mpe_editor.dll</source>
+      </version>
       <version name="1.1.4" author="externalmethod0" time="2026-10-01T21:35:00Z">
         <changelog><![CDATA[MPE Editor 1.1.4 Release
 
