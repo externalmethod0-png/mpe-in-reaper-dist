@@ -2,6 +2,22 @@
 <index version="1" name="MPE Editor">
   <category name="Extensions">
     <reapack name="MPE Editor" type="extension" desc="MPE Editor - Per-note MPE expression curve editor for REAPER">
+      <version name="1.1.6" author="externalmethod0" time="2026-10-03T15:50:00Z">
+        <changelog><![CDATA[MPE Editor 1.1.6 Release
+
+New & Improved:
+- Instant Follow Arrange View Re-sync: Toggling Follow on instantly snaps to Arrange View coordinates without requiring playback or navigation kicks.
+- Exact Sub-pixel Docked Timeline Parity: Precise screen-coordinate mapping eliminates drift between Arrange View and MPE Editor grid/playhead across any zoom level.
+- Pitch-Bent Note Auditioning: Clicking notes now previews the exact Pitch Bend curve at the clicked offset along the note length, with automatic pitch reset on release.
+- REAPER Dark Mode Theme Contrast: Guaranteed high-contrast text rendering on dark gray panels and themes (full compatibility with REAPER 7.81+ native Dark Mode).
+- Playhead Tear Glitch Fix: Synchronized single-sample cursor reading eliminates 1-2px vertical playhead displacement during continuous scrolling.
+- Shortcut 'W' for File/Item Start: 'W' reliably moves the edit cursor and view to the start of the active MIDI item/file (matching native REAPER MIDI editor navigation). 'Home' navigates to project start.
+- Shift + Drag Grid Bypass: 100% reliable snap and key scale bypass when dragging or resizing notes with Shift held.
+- Linear Item Auto-Extend: Extending media item bounds automatically disables B_LOOPSRC to ensure linear elongation without take looping.
+
+Install note: REAPER only loads extensions at startup. Restart REAPER after installing or updating.]]></changelog>
+        <source platform="win64" file="reaper_mpe_editor.dll">https://github.com/externalmethod0-png/mpe-in-reaper-dist/releases/download/v1.1.6/reaper_mpe_editor.dll</source>
+      </version>
       <version name="1.1.5" author="externalmethod0" time="2026-10-02T01:20:00Z">
         <changelog><![CDATA[MPE Editor 1.1.5 Release
 
