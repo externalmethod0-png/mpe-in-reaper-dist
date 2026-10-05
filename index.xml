@@ -2,6 +2,18 @@
 <index version="1" name="MPE Editor">
   <category name="Extensions">
     <reapack name="MPE Editor" type="extension" desc="MPE Editor - Per-note MPE expression curve editor for REAPER">
+      <version name="1.1.7" author="externalmethod0" time="2026-10-05T04:30:00Z">
+        <changelog><![CDATA[MPE Editor 1.1.7 Release
+
+New & Improved:
+- Continuous Playback Zoom Synchronization: Live horizontal zoom changes during playback are now immediately mirrored to REAPER's Arrange View without snapping back during continuous scroll.
+- Leftward Media Item Auto-Extend: Moving notes or dragging note attack leftwards past the item start automatically extends the REAPER media item start position (D_POSITION) and length (D_LENGTH) leftward to accommodate notes while maintaining project timeline synchronization (B_LOOPSRC disabled).
+- Point Tool Shift+Drag Grid Bypass: Holding Shift when clicking and dragging envelope curve points immediately starts point dragging and bypasses grid snap.
+- Point Tool Double-Click Point Insertion: Double-clicking anywhere on an expression curve in Point Tool (P) inserts a curve point at that position. Shift + double-click bypasses grid snap.
+
+Install note: REAPER only loads extensions at startup. Restart REAPER after installing or updating.]]></changelog>
+        <source platform="win64" file="reaper_mpe_editor.dll">https://github.com/externalmethod0-png/mpe-in-reaper-dist/releases/download/v1.1.7/reaper_mpe_editor.dll</source>
+      </version>
       <version name="1.1.6" author="externalmethod0" time="2026-10-03T15:50:00Z">
         <changelog><![CDATA[MPE Editor 1.1.6 Release
 
