@@ -38,6 +38,14 @@ To check for and install updates at any time, run:
 **Extensions -> ReaPack -> Synchronize packages**  
 Then restart REAPER.
 
+### Manual Download (Without ReaPack)
+
+If you prefer manual installation instead of ReaPack, download the latest 7-day trial package directly from GitHub Releases:
+- **Latest Trial ZIP (v1.1.8):** [reaper-mpe-editor-1.1.8-trial-windows-x64.zip](https://github.com/externalmethod0-png/mpe-in-reaper-dist/releases/download/v1.1.8/reaper-mpe-editor-1.1.8-trial-windows-x64.zip)
+- **Direct DLL (v1.1.8):** [reaper_mpe_editor.dll](https://github.com/externalmethod0-png/mpe-in-reaper-dist/releases/download/v1.1.8/reaper_mpe_editor.dll)
+
+Copy `reaper_mpe_editor.dll` into your REAPER `UserPlugins` directory (`Options -> Show REAPER resource path in explorer/finder -> UserPlugins`) and restart REAPER.
+
 ---
 
 ## Key Features
