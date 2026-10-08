@@ -1,20 +1,12 @@
-# MPE Editor for REAPER — Public ReaPack Distribution Repository
+# MPE Editor for REAPER — Full Commercial ReaPack Repository
 
-This repository provides binary releases, documentation, and automatic updates for the **MPE Editor** native REAPER extension via [ReaPack](https://reapack.com).
+This repository provides binary releases and 1-click automatic updates for the **full commercial version** of the **MPE Editor** native REAPER extension via [ReaPack](https://reapack.com) for customers who purchased the extension on [Gumroad](https://methodical4.gumroad.com/l/reaperMPE).
 
 `MPE Editor` is a native C++ REAPER extension (`reaper_mpe_editor.dll`) that provides a dockable and inline per-note MPE expression editor for standard MIDI takes — bringing Ableton/Bitwig-style per-note **Pitch Bend**, **Channel Pressure (Aftertouch)**, and **Timbre (CC74)** curve editing directly into REAPER while writing back 100% standard MPE MIDI events.
 
 ---
 
-## Trial vs. Full Version (Gumroad)
-
-- **Public ReaPack Repository (7-Day Trial):** The binary distributed through this public ReaPack index is the **7-Day Evaluation Build** (no account, license key, or internet connection required). Note: **v1.1.8 resets the 7-day trial timer** so early testers whose evaluation expired on previous versions automatically receive a fresh 7-day window.
-- **Full Unrestricted Version (Gumroad):** When you purchase **MPE Editor** on [Gumroad](https://methodical4.gumroad.com/l/reaperMPE), download the unrestricted full `reaper_mpe_editor.dll` directly from your Gumroad Library and place it into your REAPER `UserPlugins` directory (`Options -> Show REAPER resource path in explorer/finder -> UserPlugins`), replacing the trial DLL.
-  - *Important:* If you have installed the Full version from Gumroad, either remove/disable the public ReaPack trial package in `Extensions -> ReaPack -> Browse packages` so `Synchronize packages` does not overwrite your unlocked DLL with the public trial build.
-
----
-
-## How to Install via ReaPack (7-Day Trial)
+## How to Install & Update via ReaPack (Full Version)
 
 ### Repository URL
 
@@ -32,19 +24,23 @@ https://raw.githubusercontent.com/externalmethod0-png/mpe-in-reaper-dist/main/in
 4. Search for `MPE Editor`, right-click it, and select **Install**, then click **Apply**.
 5. **Restart REAPER** (REAPER loads C++ extension DLLs at startup).
 
-### Updating via ReaPack
+### Automatic Updates
 
-To check for and install updates at any time, run:  
+Whenever a new update is released, simply run:  
 **Extensions -> ReaPack -> Synchronize packages**  
 Then restart REAPER.
 
-### Manual Download (Without ReaPack)
+---
 
-If you prefer manual installation instead of ReaPack, download the latest 7-day trial package directly from GitHub Releases:
-- **Latest Trial ZIP (v1.1.8):** [reaper-mpe-editor-1.1.8-trial-windows-x64.zip](https://github.com/externalmethod0-png/mpe-in-reaper-dist/releases/download/v1.1.8/reaper-mpe-editor-1.1.8-trial-windows-x64.zip)
+## Direct Download (Without ReaPack)
+
+If you prefer manual installation without ReaPack, download the full release package directly:
+- **Full Package ZIP (v1.1.8):** [reaper-mpe-editor-1.1.8-windows-x64.zip](https://github.com/externalmethod0-png/mpe-in-reaper-dist/releases/download/v1.1.8/reaper-mpe-editor-1.1.8-windows-x64.zip)
 - **Direct DLL (v1.1.8):** [reaper_mpe_editor.dll](https://github.com/externalmethod0-png/mpe-in-reaper-dist/releases/download/v1.1.8/reaper_mpe_editor.dll)
 
-Copy `reaper_mpe_editor.dll` into your REAPER `UserPlugins` directory (`Options -> Show REAPER resource path in explorer/finder -> UserPlugins`) and restart REAPER.
+Extract and copy `reaper_mpe_editor.dll` into your REAPER `UserPlugins` folder:  
+`Options -> Show REAPER resource path in explorer/finder -> UserPlugins`  
+Then restart REAPER.
 
 ---
 
@@ -101,7 +97,6 @@ Copy `reaper_mpe_editor.dll` into your REAPER `UserPlugins` directory (`Options 
 - **Eliminated Zero-Delta `+8191` Pitch Spikes on Back-to-Back Notes:** Fixed an exporter issue where adjacent notes sharing an MPE member channel emitted duplicate pitch bend events at the exact same tick (`delta = 0`), causing REAPER's raw CC Bezier evaluator to spike to `+8191` (`+48 st`) at the note boundary. Coincident boundary events are now deduplicated while preserving the incoming note's outgoing Bezier curve shape and tension.
 - **Back-to-Back Note Duplication & Shared Boundary Curve Integrity:** When two touching notes share a single boundary CC/Pitch Bend event at `note1.end == note2.start`, the importer now assigns that boundary point to both the ending note and the starting note, preventing duplicated or back-to-back notes from losing their `0.0 st` start point and turning into a flat `+2 st` shelf.
 - **Automatic Curve Recovery from Take Metadata:** Projects saved by earlier builds where a duplicated note lost its start-of-note raw CC event now automatically recover their complete authored curve and Bezier tensions from persisted `<X CODEX.MPE.NOTE>` take metadata on load.
-- **Fresh 7-Day Trial Reset:** Reset the 7-day evaluation window (`trial_started_v118_unix`) so all ReaPack testers whose trial expired on earlier versions receive a fresh 7-day trial upon updating.
 
 ### v1.1.7 (2026-10-05)
 - **Continuous Playback Zoom Synchronization:** Live horizontal zoom changes during playback are immediately mirrored to REAPER's Arrange View without snapping back during continuous scroll.
@@ -109,42 +104,9 @@ Copy `reaper_mpe_editor.dll` into your REAPER `UserPlugins` directory (`Options 
 - **Point Tool `Shift+Drag` Grid Bypass:** Holding `Shift` when clicking and dragging envelope curve points immediately starts point dragging and bypasses grid snap.
 - **Point Tool Double-Click Point Insertion:** Double-clicking anywhere on an expression curve in Point Tool (`P`) inserts a curve point at that position (`Shift` + double-click bypasses grid snap).
 
-### v1.1.6 (2026-10-03)
-- **Instant Follow Arrange View Re-sync:** Toggling `Follow` on instantly snaps to Arrange View coordinates without requiring playback or navigation kicks.
-- **Exact Sub-pixel Docked Timeline Parity:** Precise screen-coordinate mapping eliminates drift between Arrange View and MPE Editor grid/playhead across any zoom level.
-- **Pitch-Bent Note Auditioning:** Clicking notes previews the exact Pitch Bend curve at the clicked offset along the note length, with automatic pitch reset on release.
-- **REAPER Dark Mode Theme Contrast:** Guaranteed high-contrast text rendering on dark gray panels and themes (full compatibility with REAPER 7.81+ native Dark Mode).
-- **Playhead Tear Glitch Fix:** Synchronized single-sample cursor reading eliminates 1-2px vertical playhead displacement during continuous scrolling.
-- **Shortcut `W` for File/Item Start:** `W` reliably moves the edit cursor and view to the start of the active MIDI item/file (`Home` navigates to project start).
-- **`Shift + Drag` Grid Bypass:** 100% reliable snap and key scale bypass when dragging or resizing notes with `Shift` held.
-- **Linear Item Auto-Extend:** Extending media item bounds automatically disables `B_LOOPSRC` to ensure linear elongation without take looping.
-
-### v1.1.5 (2026-10-02)
-- **Full Screen Timeline Alignment with Arrange View:** When docked below Arrange View, timeline measures, notes, and the playhead cursor align in a single continuous vertical line across both windows.
-- **Anti-Jitter Playback Synchronization:** Eliminated playback screen shaking and feedback loops by anchoring arrange timeline metrics and stabilizing tempo-derived horizontal zoom.
-- **Docker Sizing Parity:** Push view synchronization accurately respects Arrange View client geometry, preventing zoom drift when scrolling from inside the MPE Editor.
-
-### v1.1.4 (2026-10-01)
-- **Smooth Wheel Scroll Support:** Native support for `bobo198504`'s `SmoothWheelScroll` extension with exponential animation and anti-jitter feedback decoupling.
-- **Continuous Infinite Zoom-Out:** Complete project-wide zoom without take boundary clipping or looped source modulo wrapping.
-- **Deep Zoom Performance Optimization:** Adaptive grid Level-of-Detail (LOD) subsampling and viewport frustum culling eliminate micro-stutters when zooming far out.
-- **Dedicated Tool Workflows:** Duplicate (`Ctrl+D`), Mute (`Alt+M`), and note edits isolated strictly to Note Tool (`N`), preserving Point Tool (`P`) curve workflows.
-
-### v1.1.3 (2026-10-01)
-- **Note Audition on Click:** Selecting or clicking notes triggers audible MIDI audition through the track's instrument chain.
-- **Zoom-Out Note Hitbox Priority:** When zoomed out horizontally or vertically, note selection hitboxes cleanly take priority over micro-expression curves and handles.
-- **Visual Muted Note Styling:** Muted notes render with dimmed coloring and an explicit `[M]` badge.
-- **Built-in `F1` Interactive Help:** Press `F1` anytime for an instant keyboard shortcut reference and workflow cheatsheet.
-
-### v1.1.2 (2026-09-30)
-- **Normal Mouse Wheel Zoom:** Bare mouse wheel scrolls to zoom horizontally without holding `Ctrl` (`Ctrl+Wheel` scrolls vertically).
-- **Reset All Expressions (`Shift+F`):** Clear Pitch Bend, Pressure, and Timbre CC74 curves simultaneously with Undo history.
-- **Instant Grid Division & Swing Reaction:** Canvas dynamically listens to REAPER's grid settings and redraws grid divisions and swing alignment.
-- **Inline Editor Mode & Host Theme Integration.**
-
 ---
 
 ## Links
 
-- **Buy Full Version on Gumroad:** [https://methodical4.gumroad.com/l/reaperMPE](https://methodical4.gumroad.com/l/reaperMPE)
-- **Discussion & Support Thread:** [Cockos Incorporated Forums (Thread 309540)](https://forum.cockos.com/showthread.php?t=309540)
+- **Buy on Gumroad:** [https://methodical4.gumroad.com/l/reaperMPE](https://methodical4.gumroad.com/l/reaperMPE)
+- **Discussion & Feedback:** [Cockos Incorporated Forums (Thread 309540)](https://forum.cockos.com/showthread.php?t=309540)
